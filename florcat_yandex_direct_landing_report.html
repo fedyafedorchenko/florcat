@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Florcat × Яндекс.Директ — маркетинговый план снижения CPL</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Jost:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+    :root {
+      --bg: #FAF8F5;
+      --text: #1A1A18;
+      --muted: #69635C;
+      --terracotta: #C17B5A;
+      --sage: #7D9E7A;
+      --beige: #E8DDD0;
+      --line: #D4C9BC;
+      --paper: #FFFDF9;
+      --shadow: 0 24px 60px rgba(46, 38, 30, .08);
+      --shadow-soft: 0 14px 34px rgba(46, 38, 30, .06);
+      --radius: 28px;
+      --radius-sm: 18px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Lora', serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 14% 10%, rgba(193,123,90,.12), transparent 34%),
+        radial-gradient(circle at 94% 24%, rgba(125,158,122,.11), transparent 30%),
+        var(--bg);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .11;
+      z-index: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='.55'/%3E%3C/svg%3E");
+    }
+
+    a { color: inherit; text-decoration: none; }
+    section, header, footer { position: relative; z-index: 1; }
+
+    .progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0%;
+      background: linear-gradient(90deg, var(--terracotta), var(--sage));
+      z-index: 1000;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      backdrop-filter: blur(14px);
+      background: rgba(250,248,245,.92);
+      border-bottom: 1px solid rgba(212,201,188,0);
+      transition: border-color .25s ease, box-shadow .25s ease;
+    }
+    .site-header.scrolled {
+      border-bottom-color: rgba(212,201,188,.9);
+      box-shadow: 0 10px 30px rgba(46, 38, 30, .04);
+    }
+    .header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: .02em;
+      white-space: nowrap;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px 20px;
+      font-family: 'Jost', sans-serif;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: var(--muted);
+    }
+    nav a { transition: color .2s ease; }
+    nav a:hover { color: var(--terracotta); }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .section {
+      padding: 110px 0;
+      overflow: hidden;
+    }
+    .section-tight { padding: 82px 0; }
+
+    h1, h2 {
+      font-family: 'Cormorant Garamond', serif;
+      line-height: .95;
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: -.035em;
+    }
+    h1 {
+      font-size: clamp(56px, 8vw, 108px);
+      max-width: 820px;
+    }
+    h2 {
+      font-size: clamp(42px, 5.5vw, 82px);
+      max-width: 850px;
+      position: relative;
+      z-index: 1;
+    }
+    h3, h4, .eyebrow {
+      font-family: 'Jost', sans-serif;
+    }
+    h3 {
+      margin: 0 0 14px;
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: -.01em;
+    }
+    p { margin: 0; }
+    .lead {
+      margin-top: 28px;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: clamp(17px, 1.6vw, 20px);
+    }
+    .eyebrow {
+      color: var(--terracotta);
+      text-transform: uppercase;
+      font-weight: 600;
+      letter-spacing: .14em;
+      font-size: 13px;
+      margin-bottom: 18px;
+    }
+
+    .hero {
+      min-height: calc(100vh - 76px);
+      display: flex;
+      align-items: center;
+      padding: 82px 0 90px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 330px;
+      gap: 34px;
+      align-items: center;
+    }
+    .flower-big {
+      width: 100%;
+      opacity: .18;
+      color: var(--terracotta);
+      transform: rotate(-8deg);
+      filter: drop-shadow(0 24px 30px rgba(193,123,90,.08));
+    }
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 46px 0 34px;
+      position: relative;
+    }
+    .divider::after {
+      content: "✽";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--bg);
+      color: var(--terracotta);
+      padding: 0 20px;
+      font-size: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .card {
+      background: rgba(255,253,249,.72);
+      border: 1px solid rgba(212,201,188,.82);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow-soft);
+      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(193,123,90,.48);
+      box-shadow: var(--shadow);
+    }
+    .card.beige { background: rgba(232,221,208,.48); }
+    .top-accent { border-top: 4px solid var(--terracotta); }
+    .top-accent.sage { border-top-color: var(--sage); }
+    .icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 16px;
+      color: var(--terracotta);
+    }
+    .card p, .table-wrap p, li { color: var(--muted); }
+    .strong { color: var(--text); font-weight: 600; }
+
+    .custom-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: 'Jost', sans-serif;
+      background: rgba(255,253,249,.58);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(212,201,188,.8);
+    }
+    .custom-table th {
+      background: rgba(232,221,208,.72);
+      text-align: left;
+      padding: 18px 22px;
+      font-size: 13px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text);
+    }
+    .custom-table td {
+      padding: 18px 22px;
+      border-bottom: 1px solid rgba(212,201,188,.72);
+      vertical-align: top;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .custom-table tr:last-child td { border-bottom: 0; }
+    .custom-table td:first-child {
+      color: var(--text);
+      font-weight: 600;
+      width: 30%;
+    }
+
+    .scenario-bars {
+      margin-top: 34px;
+      display: grid;
+      gap: 16px;
+    }
+    .bar-card {
+      background: rgba(255,253,249,.7);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 12px 16px;
+      display: grid;
+      grid-template-columns: 200px 1fr 150px;
+      gap: 16px;
+      align-items: center;
+      font-family: 'Jost', sans-serif;
+    }
+    .bar-track {
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(212,201,188,.55);
+      overflow: hidden;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: inherit;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform 1.2s cubic-bezier(.2,.8,.2,1);
+    }
+    .bar-card.in-view .bar-fill { transform: scaleX(1); }
+    .red { background: #C76B5D; }
+    .yellow { background: #D5A64F; }
+    .green { background: var(--sage); }
+
+    .split {
+      position: relative;
+    }
+    .split::before {
+      content: "";
+      position: absolute;
+      top: 24px;
+      bottom: 24px;
+      left: 50%;
+      width: 1px;
+      background: var(--line);
+    }
+    .split::after {
+      content: "✽";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--bg);
+      color: var(--terracotta);
+      padding: 12px 0;
+    }
+    .list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .list li {
+      position: relative;
+      padding-left: 32px;
+    }
+    .list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--sage);
+      font-family: 'Jost', sans-serif;
+      font-weight: 700;
+    }
+    .list.warn li::before {
+      content: "!";
+      color: var(--terracotta);
+    }
+    .risk-note {
+      border-left: 4px solid var(--terracotta);
+      padding: 22px 26px;
+      background: rgba(232,221,208,.55);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin-top: 24px;
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .metric {
+      background: rgba(232,221,208,.5);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+    .metric .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(44px, 5vw, 68px);
+      line-height: .95;
+      color: var(--terracotta);
+    }
+    .metric span {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      color: var(--muted);
+      margin-top: 10px;
+    }
+
+    .dark-beige {
+      background:
+        linear-gradient(180deg, rgba(232,221,208,.72), rgba(232,221,208,.35)),
+        var(--beige);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+    .section-number {
+      position: absolute;
+      right: 4vw;
+      top: 68px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(120px, 17vw, 230px);
+      line-height: 1;
+      color: rgba(193,123,90,.10);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .audit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 36px;
+    }
+    .mini-card {
+      background: rgba(255,253,249,.58);
+      border: 1px solid rgba(212,201,188,.9);
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 210px;
+      transition: .25s ease;
+    }
+    .mini-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255,253,249,.86);
+    }
+    .mini-card b {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+    .quote {
+      margin-top: 38px;
+      padding: 34px;
+      border-radius: var(--radius);
+      background: rgba(250,248,245,.74);
+      border-left: 5px solid var(--terracotta);
+      font-size: clamp(19px, 2vw, 25px);
+      line-height: 1.45;
+      font-style: italic;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .market-metrics {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .season {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+    .competitors {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 34px;
+    }
+    .comp-card {
+      background: rgba(255,253,249,.74);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 230px;
+    }
+    .comp-card h4 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+
+    .hypo-table td:first-child { width: 18%; }
+    .numbered {
+      counter-reset: card;
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .feature-card {
+      counter-increment: card;
+      background: rgba(255,253,249,.78);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+    }
+    .feature-card::before {
+      content: "0" counter(card);
+      position: absolute;
+      right: 22px;
+      top: -18px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 120px;
+      color: rgba(193,123,90,.10);
+      line-height: 1;
+    }
+
+    .budget-area {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 28px;
+      align-items: center;
+      margin-top: 34px;
+    }
+    .donut {
+      width: min(100%, 360px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      margin: 0 auto;
+      background:
+        conic-gradient(
+          var(--terracotta) 0 58.7%,
+          var(--sage) 58.7% 75%,
+          #B78F6B 75% 83.7%,
+          #9AAE8E 83.7% 89.1%,
+          #D2A262 89.1% 95.6%,
+          #8C8379 95.6% 100%
+        );
+      position: relative;
+      box-shadow: var(--shadow);
+    }
+    .donut::after {
+      content: "460к ₽";
+      position: absolute;
+      inset: 21%;
+      border-radius: 50%;
+      background: var(--bg);
+      display: grid;
+      place-items: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 46px;
+      font-style: italic;
+      color: var(--text);
+      box-shadow: inset 0 0 0 1px var(--line);
+    }
+    .legend {
+      display: grid;
+      gap: 10px;
+      font-family: 'Jost', sans-serif;
+      color: var(--muted);
+      margin-top: 22px;
+    }
+    .legend span::before {
+      content: "";
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      margin-right: 9px;
+      background: var(--terracotta);
+    }
+    .legend span:nth-child(2)::before { background: var(--sage); }
+    .legend span:nth-child(3)::before { background: #B78F6B; }
+    .legend span:nth-child(4)::before { background: #9AAE8E; }
+    .legend span:nth-child(5)::before { background: #D2A262; }
+    .legend span:nth-child(6)::before { background: #8C8379; }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(8, minmax(230px, 1fr));
+      gap: 16px;
+      overflow-x: auto;
+      padding: 10px 2px 18px;
+      margin-top: 30px;
+      scroll-snap-type: x mandatory;
+    }
+    .time-card {
+      scroll-snap-align: start;
+      background: rgba(255,253,249,.78);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 22px;
+      min-height: 235px;
+      transition: .25s ease;
+    }
+    .time-card:hover { transform: translateY(-5px); }
+    .time-card .period {
+      font-family: 'Jost', sans-serif;
+      color: var(--terracotta);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .time-card .result {
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    footer {
+      padding: 60px 24px 70px;
+      text-align: center;
+      color: var(--muted);
+      font-family: 'Jost', sans-serif;
+      border-top: 1px solid var(--line);
+    }
+    .footer-mark {
+      color: var(--terracotta);
+      font-size: 24px;
+      margin-top: 14px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .8s ease, transform .8s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .watermark {
+      position: absolute;
+      right: 18px;
+      bottom: -14px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 120px;
+      line-height: 1;
+      color: rgba(193,123,90,.08);
+      pointer-events: none;
+    }
+    .branch {
+      position: absolute;
+      right: -80px;
+      top: 80px;
+      width: 340px;
+      color: var(--sage);
+      opacity: .17;
+      z-index: 0;
+    }
+
+    @media (max-width: 1020px) {
+      .hero-grid, .grid-2, .budget-area { grid-template-columns: 1fr; }
+      .flower-big { max-width: 260px; margin-left: auto; }
+      .grid-3, .metric-row, .season { grid-template-columns: 1fr; }
+      .audit-grid, .competitors, .market-metrics { grid-template-columns: repeat(2, 1fr); }
+      .split::before, .split::after { display: none; }
+      .bar-card { grid-template-columns: 1fr; border-radius: 22px; }
+      nav { display: none; }
+      .custom-table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+    @media (max-width: 620px) {
+      .header-inner { padding: 14px 18px; }
+      .wrap { padding: 0 18px; }
+      .section { padding: 78px 0; }
+      .hero { min-height: auto; padding-top: 64px; }
+      .card, .feature-card { padding: 22px; border-radius: 22px; }
+      .audit-grid, .competitors, .market-metrics { grid-template-columns: 1fr; }
+      .custom-table th, .custom-table td { padding: 14px 16px; font-size: 14px; }
+      .branch { display: none; }
+      .brand { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" id="progress"></div>
+
+  <header class="site-header" id="header">
+    <div class="header-inner">
+      <a class="brand" href="#resume">Florcat × Яндекс.Директ</a>
+      <nav aria-label="Навигация по отчёту">
+        <a href="#resume">Резюме</a>
+        <a href="#site-diagnosis">Диагноз сайта</a>
+        <a href="#ads-diagnosis">Реклама и аналитика</a>
+        <a href="#market">Рынок</a>
+        <a href="#hypotheses">Гипотезы</a>
+        <a href="#plan">План</a>
+        <a href="#risks">Риски</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="resume">
+      <div class="wrap">
+        <div class="hero-grid">
+          <div class="reveal">
+            <p class="eyebrow">Маркетинговый план снижения CPL</p>
+            <h1>Florcat в Яндекс.Директе:<br>от 1500 ₽ к 950 ₽ за заказ</h1>
+            <p class="lead">Полный анализ текущей ситуации, диагноз воронки, конкурентной среды и пошаговый план снижения стоимости оплаченного заказа — не через «подкрутку ставок», а через перестройку измерения, архитектуры кампаний и посадочных страниц.</p>
+          </div>
+          <svg class="flower-big parallax" viewBox="0 0 260 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M134 335C129 258 132 197 133 149" stroke="currentColor" stroke-width="2"/>
+            <path d="M132 147C85 137 51 111 47 75C42 34 86 22 122 57C136 7 197 10 206 54C215 101 181 135 132 147Z" stroke="currentColor" stroke-width="3"/>
+            <path d="M132 147C105 108 109 72 122 57" stroke="currentColor" stroke-width="2"/>
+            <path d="M132 147C151 102 174 68 206 54" stroke="currentColor" stroke-width="2"/>
+            <path d="M130 241C95 213 61 211 36 232C73 252 105 255 130 241Z" stroke="currentColor" stroke-width="2"/>
+            <path d="M135 260C173 230 205 230 232 252C193 275 160 275 135 260Z" stroke="currentColor" stroke-width="2"/>
+          </svg>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid-3 reveal">
+          <article class="card top-accent beige">
+            <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M24 7v34M12 17h24M14 17l-6 12h12l-6-12Zm20 0-6 12h12l-6-12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Краткосрочная цель</h3>
+            <p>На горизонте 6–10 недель при единой purchase-цели, разделённой архитектуре кампаний и посадочных под интент реалистична стоимость оплаченного заказа <span class="strong">1100–1300 ₽</span>. На горизонте 2–4 месяца — <span class="strong">950–1250 ₽</span> в непиковые периоды.</p>
+          </article>
+          <article class="card top-accent sage beige">
+            <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M24 42c9-8 14-15 14-23a14 14 0 1 0-28 0c0 8 5 15 14 23Z" stroke="currentColor" stroke-width="2"/><path d="M24 24a5 5 0 1 0 0-10 5 5 0 0 0 0 10Z" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>Где лежит резерв</h3>
+            <p>Основной резерв не в ставках, а в четырёх слоях: атрибуция и measurement, feed-/dynamic-реклама, сегментация по интенту, посадочные под категории и районы.</p>
+          </article>
+          <article class="card top-accent beige">
+            <svg class="icon" viewBox="0 0 48 48" fill="none"><path d="M24 14v12l8 5M42 24a18 18 0 1 1-36 0 18 18 0 0 1 36 0Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <h3>Главный риск</h3>
+            <p>Самый опасный сценарий — снижение CPL при одновременной просадке качества заказов, среднего чека или маржи. Поэтому главный KPI — <span class="strong">paid order CPL</span>, а не «лиды вообще».</p>
+          </article>
+        </div>
+
+        <div class="section-tight reveal">
+          <table class="custom-table">
+            <thead><tr><th>Вопрос</th><th>Вывод</th></tr></thead>
+            <tbody>
+              <tr><td>Можно ли сделать меньше 1500 ₽?</td><td>Да, с высокой вероятностью — но только через full-funnel перестройку.</td></tr>
+              <tr><td>Реалистичная цель на коротком горизонте</td><td>1100–1300 ₽ за оплаченный заказ.</td></tr>
+              <tr><td>Реалистичная цель на среднем горизонте</td><td>950–1250 ₽ в непиковые периоды.</td></tr>
+              <tr><td>Где лежит основной резерв</td><td>Атрибуция, feed-реклама, интент-сегментация, посадочные.</td></tr>
+              <tr><td>Что нельзя считать успехом</td><td>Падение CPL при просадке качества, чека или маржи.</td></tr>
+              <tr><td>Что нужно от клиента прежде всего</td><td>Доступы к Директу, Метрике, CRM, коллтрекингу, истории заказов.</td></tr>
+            </tbody>
+          </table>
+
+          <div class="scenario-bars">
+            <div class="bar-card reveal"><b>🔴 Пессимистичный</b><div class="bar-track"><div class="bar-fill red" style="width:86%"></div></div><span>1300–1600 ₽</span></div>
+            <div class="bar-card reveal"><b>🟡 Реалистичный</b><div class="bar-track"><div class="bar-fill yellow" style="width:68%"></div></div><span>950–1250 ₽</span></div>
+            <div class="bar-card reveal"><b>🟢 Оптимистичный</b><div class="bar-track"><div class="bar-fill green" style="width:54%"></div></div><span>850–1050 ₽</span></div>
+          </div>
+          <p class="lead" style="font-size:16px;margin-top:18px;">На пиковых датах — 14 февраля, 8 марта, 1 сентября — даже хорошо настроенный аккаунт ожидаемо даёт 1200–1800 ₽. Это нормально для ниши: объём в эти дни часто важнее идеальной цены.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="site-diagnosis">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow">Диагноз сайта и воронки</p>
+          <h2>Сильная база уже есть. Теперь её нужно дисциплинированно монетизировать.</h2>
+          <p class="lead">Florcat уже выглядит не как «сырой» локальный магазин, а как работающий e-commerce-проект со зрелыми элементами доверия. Базовая проблема — не недоверие к бренду, а недостаточно дисциплинированная коммерциализация уже имеющихся преимуществ и фрагментированная воронка, которая ломает атрибуцию.</p>
+        </div>
+
+        <div class="grid-2 split section-tight reveal">
+          <article class="card">
+            <h3 style="color:var(--sage)">Конверсионные активы</h3>
+            <ul class="list">
+              <li>Зонирование доставки с понятной ценой, минимальный чек 1500 ₽, выбор интервала, доставка к точному времени.</li>
+              <li>Отдельные адреса самовывоза.</li>
+              <li>Триггер «фото букета перед доставкой» снижает сомнения перед оплатой.</li>
+              <li>Buyer-only рейтинги, которые нельзя накрутить.</li>
+              <li>Допродажа сопутствующих товаров на карточке.</li>
+              <li>Приложение: 500 бонусов за регистрацию, кэшбэк 10%.</li>
+              <li>Публичные отзывы о скорости и согласовании фото.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 style="color:var(--terracotta)">Точки утечки конверсии</h3>
+            <ul class="list warn">
+              <li>Заказ считается оформленным только после звонка менеджера — покупка не самозамыкается в онлайне.</li>
+              <li>Корзина, телефон, почта и мессенджеры дробят путь покупки и обучающие сигналы.</li>
+              <li>Страницы «Доставка» и «Контакты» перегружены каталожными блоками.</li>
+              <li>Secondary-элементы появляются слишком рано и могут съедать основной путь к покупке.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="card reveal">
+          <h3>Техническая база: хорошая основа, но требует проверки</h3>
+          <p>Для Florcat реализованы личный кабинет, история заказов, персональные скидки и бонусы, зоны доставки, модуль электронной коммерции и платёжный модуль на базе 1С-Битрикс. Performance-решениям важен не факт наличия e-commerce-модуля, а правильная передача событий в систему аналитики. Для привязки офлайн-заказов к визитам нужно сохранять <span class="strong">ClientID, UserID, yclid и PurchaseId</span>. Проверка UTM- и ID-протаскивания — <span class="strong">критический P1-аудит</span>.</p>
+          <div class="risk-note"><b>Средне-высокий риск.</b> Сайт image-first, на сервисных страницах много длинных блоков, повторов и промо-элементов. Для мобильного платного трафика нужен отдельный PageSpeed Insights / Lighthouse аудит — без него нельзя говорить о скорости «на глаз».</div>
+        </div>
+
+        <div class="section-tight reveal">
+          <table class="custom-table">
+            <thead><tr><th>Блок</th><th>Что видно</th><th>Влияние на CPL</th><th>Приоритет</th></tr></thead>
+            <tbody>
+              <tr><td>Доверие и бренд</td><td>Отзывы, гарантия, фото перед доставкой, buyer-only рейтинги, несколько адресов.</td><td>Снижает сопротивление покупке.</td><td>Высокий актив — не потерять</td></tr>
+              <tr><td>Коммерческий оффер</td><td>Точная доставка, зональность, приложение, бонусы, кэшбэк.</td><td>Недостаточно монетизирован в объявлениях.</td><td>Высокий</td></tr>
+              <tr><td>Воронка заказа</td><td>Подтверждение менеджером + множество каналов.</td><td>Ломает атрибуцию, замедляет online close rate.</td><td><b>Критический</b></td></tr>
+              <tr><td>Посадочные</td><td>Длинные, перегруженные.</td><td>Плохо для mobile search intent.</td><td>Высокий</td></tr>
+              <tr><td>Аналитика</td><td>Есть фундамент, нет подтверждения end-to-end передачи purchase.</td><td>Алгоритмы учатся на неполных данных.</td><td><b>Критический</b></td></tr>
+              <tr><td>Retention / LTV</td><td>Приложение, бонусы, кэшбэк 10%.</td><td>Позволяет терпеть выше first-order CPA.</td><td>Высокий</td></tr>
+              <tr><td>Скорость / mobile UX</td><td>Нужен отдельный аудит.</td><td>Может бить по CPC и CR одновременно.</td><td>Высокий</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="reveal">
+          <h3>Где мы сейчас и куда можем попасть</h3>
+          <p class="lead" style="font-size:17px;">При текущем CPL 1500 ₽ и CPC горячих запросов 100–150 ₽ текущая конверсия из клика в заказ составляет ориентировочно 6–10%. Путь вниз реалистичен — если улучшить match «запрос → объявление → страница → событие purchase».</p>
+          <div class="metric-row">
+            <div class="metric"><div class="num">100 ₽</div><span>CPL 1500 ₽: 6,7% / CPL 1100 ₽: 9,1%</span></div>
+            <div class="metric"><div class="num">120 ₽</div><span>CPL 1500 ₽: 8,0% / CPL 1100 ₽: 10,9%</span></div>
+            <div class="metric"><div class="num">150 ₽</div><span>CPL 1500 ₽: 10,0% / CPL 1100 ₽: 13,6%</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-beige" id="ads-diagnosis">
+      <div class="section-number">03</div>
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow">Диагноз рекламы и аналитики</p>
+          <h2>Без данных из кабинета нельзя гадать. Но можно точно задать взрослую проверку.</h2>
+          <p class="lead">Без доступа в кабинет Яндекс.Директа нельзя честно назвать сильные и слабые кампании по дням, фразам и объявлениям. Но можно точно сказать, что нужно выгрузить: кампании, фразы, поисковые запросы, объявления, посадочные, ретаргетинг, фид, атрибуцию и unit-экономику.</p>
+        </div>
+
+        <div class="audit-grid reveal">
+          <div class="mini-card"><b>История кампаний</b><p>Тип, период, бюджет, стратегия, гео, расписание, устройства — понять архитектуру и стабильность обучения.</p></div>
+          <div class="mini-card"><b>Фразы и запросы</b><p>Показы, клики, CPC, CTR, конверсии, CPA, revenue, search terms — найти драйверы и пожирателей бюджета.</p></div>
+          <div class="mini-card"><b>Объявления</b><p>Заголовки, тексты, быстрые ссылки, уточнения, цены, промо — проверить CTR и message match.</p></div>
+          <div class="mini-card"><b>Посадочные</b><p>URL, add-to-cart, begin_checkout, purchase, bounce — найти разрывы между интентом и страницей.</p></div>
+          <div class="mini-card"><b>Ретаргетинг / РСЯ</b><p>Сегменты, частота, площадки, исключения, CPA — понять, не идёт ли перегрев из сетей.</p></div>
+          <div class="mini-card"><b>Feed / товарные</b><p>Фид, ошибки, статусы, категории, availability — проверить, используется ли сильный e-com рычаг.</p></div>
+          <div class="mini-card"><b>Атрибуция</b><p>yclid, ClientID, PurchaseId, звонки, мессенджеры, статусы CRM — связать покупку с рекламой.</p></div>
+          <div class="mini-card"><b>Unit-экономика</b><p>Средний чек, маржа по категориям и зонам — считать допустимый CPA по прибыли.</p></div>
+        </div>
+
+        <div class="quote reveal">Если сейчас смешаны поиск и РСЯ, бренд и non-brand, широкие коммерческие ключи и низкочастотные geo-intent-запросы — текущий CPL 1500 ₽ почти наверняка завышен искусственно. Для цветочного e-commerce игнорировать feed-based продвижение уже нельзя.</div>
+
+        <div class="card reveal" style="margin-top:28px;">
+          <h3>Объявления и расширения</h3>
+          <p>У Florcat уже есть сильные коммерческие маркеры: фото перед отправкой, бонусы, доставка к точному времени, зоны, несколько салонов, buyer-only рейтинги. Их нужно поднимать в креативы и расширения: «Фото перед отправкой», «Точное время доставки», «Акции недели», «По районам СПб», «500 бонусов в приложении».</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="market">
+      <svg class="branch parallax" viewBox="0 0 240 520" fill="none" aria-hidden="true"><path d="M104 506C124 391 119 240 74 20" stroke="currentColor" stroke-width="3"/><path d="M97 426C54 384 33 338 46 292C95 328 112 374 97 426Z" stroke="currentColor" stroke-width="2"/><path d="M112 355C158 315 185 270 174 221C125 259 103 305 112 355Z" stroke="currentColor" stroke-width="2"/><path d="M86 259C43 218 24 174 39 132C86 167 102 213 86 259Z" stroke="currentColor" stroke-width="2"/></svg>
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow">Рынок, сезонность и конкуренты</p>
+          <h2>Florcat не должен соревноваться только ценой. У него есть локальный стиль и сервис.</h2>
+        </div>
+
+        <div class="metric-row market-metrics reveal">
+          <div class="metric"><div class="num"><span class="counter" data-target="450" data-prefix="~" data-suffix=" млрд ₽">~0 млрд ₽</span></div><span>объём рынка цветов</span></div>
+          <div class="metric"><div class="num"><span class="counter" data-target="20" data-prefix="+" data-suffix="%">+0%</span></div><span>рост онлайн-заказов</span></div>
+          <div class="metric"><div class="num"><span class="counter" data-target="50" data-prefix=">" data-suffix="%">>0%</span></div><span>доля онлайна в продажах</span></div>
+          <div class="metric"><div class="num"><span class="counter" data-target="3800" data-suffix="+ ₽">0+ ₽</span></div><span>средний чек на букет</span></div>
+        </div>
+
+        <p class="lead reveal" style="font-size:18px;">На Санкт-Петербург приходится около 15% продаж рынка. Город тяготеет не к «кричащей скидочной» модели, а к более сдержанной европейской классике. Более умная позиция: локальный стиль + скорость + точность + подтверждённое качество + программа лояльности.</p>
+
+        <div class="season reveal">
+          <article class="card top-accent sage"><h3>🟢 Off-peak</h3><p>Стандартный режим, CPL 950–1250 ₽. Здесь строится стабильная экономика канала.</p></article>
+          <article class="card top-accent" style="border-top-color:#D5A64F"><h3>🟡 Pre-peak</h3><p>Наращивание ставок и бюджета за 7–14 дней до праздника, подготовка фида и креативов.</p></article>
+          <article class="card top-accent"><h3>🔴 Peak-day</h3><p>14 февраля, 8 марта, 1 сентября: CPL 1200–1800 ₽ нормален, объём важнее цены.</p></article>
+        </div>
+
+        <div class="competitors reveal">
+          <div class="comp-card"><h4>Flowwow</h4><p>Marketplace-модель, широкий гео-охват, social proof. Florcat нужно выигрывать в локальной экспертности.</p></div>
+          <div class="comp-card"><h4>АртФлора</h4><p>Агрессивная цена и скидки. Нужна отдельная price-sensitive семантика.</p></div>
+          <div class="comp-card"><h4>Семицветик</h4><p>24/7, широкий SKU, региональный бренд. Ответ — geo-страницы и доставка по районам.</p></div>
+          <div class="comp-card"><h4>Цветовик</h4><p>Давит на logistics promise. У Florcat похожий актив есть, его нужно громче коммуницировать.</p></div>
+          <div class="comp-card"><h4>Русский Букет</h4><p>Федеральный бренд и фото перед отправкой. Нужна защита брендового спроса.</p></div>
+          <div class="comp-card"><h4>Flor2u</h4><p>Message вокруг reliability. Florcat должен эксплуатировать buyer-only ratings и SLA.</p></div>
+          <div class="comp-card"><h4>AzaliaNow</h4><p>Промокоды и акционные посадочные. Хороший ориентир для promo-layer.</p></div>
+          <div class="comp-card"><h4>RoseMarkt</h4><p>Local premium/express: доставка 1–2 часа, заказ в 1 клик. Пример лаконичного пути.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="hypotheses">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow">Гипотезы и тактики снижения CPL</p>
+          <h2>Сначала точность измерения. Потом реальное улучшение конверсии.</h2>
+          <p class="lead">Если сайт даёт заказы через звонки и мессенджеры, а алгоритм видит только часть покупок — всегда будет ложная оптимизация. Поэтому гипотезы делятся на measurement и conversion.</p>
+        </div>
+
+        <div class="section-tight reveal">
+          <table class="custom-table hypo-table">
+            <thead><tr><th>Гипотеза</th><th>Суть</th><th>Эффект на CPL</th><th>Срок сигнала</th></tr></thead>
+            <tbody>
+              <tr><td>Единая purchase-цель</td><td>Передавать оплаченный заказ, а не клик в мессенджер.</td><td>−10–20%</td><td>2–4 недели</td></tr>
+              <tr><td>Сквозная атрибуция CRM</td><td>Протаскивать yclid / ClientID / PurchaseId.</td><td>−5–15%</td><td>2–6 недель</td></tr>
+              <tr><td>Реструктуризация search</td><td>Разделить бренд, non-brand, категории, районы, premium, праздники.</td><td>−10–18%</td><td>2–5 недель</td></tr>
+              <tr><td>Товарные кампании + feed</td><td>Отдельный товарный слой на каталоге и наличии.</td><td>−15–35%</td><td>2–6 недель</td></tr>
+              <tr><td>Динамические объявления</td><td>Закрыть хвост низкочастотного спроса по каталогу.</td><td>−8–20%</td><td>2–6 недель</td></tr>
+              <tr><td>Офферный ретаргетинг</td><td>Возвращать на просмотренные карточки товарными объявлениями.</td><td>−5–12%</td><td>2–4 недели</td></tr>
+              <tr><td>Чистка запросов</td><td>Еженедельно чистить search terms и shared negative sets.</td><td>−5–12%</td><td>1–3 недели</td></tr>
+              <tr><td>Усиление объявлений</td><td>Быстрые ссылки, уточнения, цена, доставка, фото букета, бонусы.</td><td>−3–10%</td><td>1–3 недели</td></tr>
+              <tr><td>Посадочные по интенту</td><td>Розы, пионы, недорогие, premium, срочно, районы, свадьбы, корпоративные.</td><td>−10–20%</td><td>3–8 недель</td></tr>
+              <tr><td>Checkout / CRO</td><td>Меньше трения, прозрачная доставка, меньше отвлечений до оплаты.</td><td>−8–15%</td><td>2–6 недель</td></tr>
+              <tr><td>CRM-retention</td><td>Брошенная корзина, repeat flows, поводы, post-purchase upsell.</td><td>Снижает blended CPL</td><td>3–8 недель</td></tr>
+              <tr><td>LTV-ставки</td><td>Переход к заказам с лучшей маржой и повторяемостью.</td><td>Повышает экономику</td><td>4–12 недель</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="numbered reveal">
+          <article class="feature-card">
+            <h3>Geo-страницы и локальный интент</h3>
+            <p>Для запросов «цветы Приморский район», «доставка цветов Героев», «букет срочно СПб ночью», «пионовидные розы СПб точное время» точный match query → page может дать заметное удешевление трафика при сохранении purchase-intent.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Сервисные триггеры в объявления</h3>
+            <p>Фото букета до отправки, доставка к точному времени, приветственные бонусы и кэшбэк приложения должны работать не только на сайте, но и в быстрых ссылках, уточнениях и текстах объявлений.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Retention и LTV как конкурентное преимущество</h3>
+            <p>Программа лояльности и приложение позволяют терпеть более высокий CPA на сегментах с повторными покупками. Это меняет экономику аукциона, если CRM нормально сегментирует клиентов по случаям и интервалам.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section dark-beige" id="plan">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow">План на 3–6 месяцев</p>
+          <h2>Директ захватывает спрос. SEO, CRM и CRO снижают blended CPL.</h2>
+          <p class="lead">Если общий бюджет существенно ниже 250 000 ₽ в месяц — временно сократить план до трёх осей: Директ, аналитика, CRM-retention — и отложить масштабный SEO до починки measurement layer.</p>
+        </div>
+
+        <div class="budget-area reveal">
+          <table class="custom-table">
+            <thead><tr><th>Канал</th><th>Бюджет / мес</th><th>Роль</th><th>KPI</th></tr></thead>
+            <tbody>
+              <tr><td>Яндекс.Директ</td><td>270 000 ₽</td><td>Горячий спрос</td><td>Paid order CPL</td></tr>
+              <tr><td>SEO</td><td>75 000 ₽</td><td>Дешёвый non-paid спрос</td><td>Organic orders</td></tr>
+              <tr><td>SMM</td><td>40 000 ₽</td><td>Доверие и повторные касания</td><td>Assisted conversions</td></tr>
+              <tr><td>CRM</td><td>25 000 ₽</td><td>Удержание и повторные покупки</td><td>Repeat rate</td></tr>
+              <tr><td>Партнёрства</td><td>30 000 ₽</td><td>Локальные источники заказов</td><td>Partner orders</td></tr>
+              <tr><td>CRO</td><td>20 000 ₽</td><td>Рост конверсии сайта</td><td>CR click → paid order</td></tr>
+              <tr><td><b>Итого</b></td><td><b>460 000 ₽</b></td><td>Сбалансированный микс</td><td>Blended CPL</td></tr>
+            </tbody>
+          </table>
+          <div>
+            <div class="donut" aria-label="Диаграмма распределения бюджета"></div>
+            <div class="legend">
+              <span>Яндекс.Директ — 270к</span>
+              <span>SEO — 75к</span>
+              <span>SMM — 40к</span>
+              <span>CRM — 25к</span>
+              <span>Партнёрства — 30к</span>
+              <span>CRO — 20к</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-3 reveal" style="margin-top:30px;">
+          <article class="card"><h3>Пессимистичный</h3><p>Бюджет 300–350к, Direct CPL 1300–1600 ₽, blended CPL 1200–1500 ₽. Задача — не сломать качество.</p></article>
+          <article class="card"><h3>Реалистичный</h3><p>Бюджет 460к, Direct CPL 950–1250 ₽, blended CPL 850–1150 ₽. Задача — масштабировать победителей.</p></article>
+          <article class="card"><h3>Оптимистичный</h3><p>Бюджет 550–650к, Direct CPL 850–1050 ₽, blended CPL 750–950 ₽. Задача — удержать SLA и маржу.</p></article>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="time-card"><span class="period">Недели 1–2</span><h3>Аудит данных</h3><p>Директ, Метрика, CRM, коллтрекинг, словарь метрик, карта статусов.</p><p class="result">Единая модель данных</p></div>
+          <div class="time-card"><span class="period">Недели 3–4</span><h3>Архитектура</h3><p>Бренд, hot non-brand, категории, районы, premium, праздники, negative sets.</p><p class="result">Новая структура аккаунта</p></div>
+          <div class="time-card"><span class="period">Недели 5–6</span><h3>Запуск слоёв</h3><p>Search, товарные кампании, динамические объявления, ремаркетинг.</p><p class="result">Первая волна learnings</p></div>
+          <div class="time-card"><span class="period">Недели 7–8</span><h3>Гигиена</h3><p>Search terms, placements, объявления, быстрые ссылки, CRO-изменения.</p><p class="result">Рост message match</p></div>
+          <div class="time-card"><span class="period">Недели 9–10</span><h3>Посадочные</h3><p>Районы, категории, срочные, бюджетные, checkout.</p><p class="result">Рост CR click → order</p></div>
+          <div class="time-card"><span class="period">Недели 11–12</span><h3>Retention</h3><p>Брошенная корзина, post-purchase, repeat triggers, app-first.</p><p class="result">Снижение blended CPL</p></div>
+          <div class="time-card"><span class="period">Недели 13–14</span><h3>Новые кластеры</h3><p>SEO, корпоративные и свадебные сегменты, локальные партнёрства.</p><p class="result">Выход за дорогой аукцион</p></div>
+          <div class="time-card"><span class="period">Недели 15–16</span><h3>Масштабирование</h3><p>Победители вверх, аутсайдеры вниз, обновление target CPA.</p><p class="result">Стабилизация</p></div>
+        </div>
+
+        <div class="section-tight reveal">
+          <table class="custom-table">
+            <thead><tr><th>Тест</th><th>Гипотеза</th><th>Метрика успеха</th><th>Критерий победы</th></tr></thead>
+            <tbody>
+              <tr><td>Geo landing</td><td>Районные страницы дают выше CR.</td><td>CR, CPL</td><td>CPL ниже на 12%+</td></tr>
+              <tr><td>Feed campaign</td><td>Товарный слой снижает CPA.</td><td>CPA, revenue</td><td>CPA ниже search average</td></tr>
+              <tr><td>Service extensions</td><td>Фото, точное время и бонусы повышают CTR.</td><td>CTR, CPC</td><td>CTR выше на 8%+</td></tr>
+              <tr><td>Checkout simplification</td><td>Меньше отвлечений до оплаты.</td><td>Begin checkout → paid</td><td>CR выше на 10%+</td></tr>
+              <tr><td>Cart retargeting</td><td>Возврат на просмотренный товар.</td><td>Return orders</td><td>CPA ниже blended average</td></tr>
+              <tr><td>Price-sensitive cluster</td><td>Отдельная семантика под недорогие букеты.</td><td>CPL, AOV</td><td>Не проседает маржа</td></tr>
+              <tr><td>Premium cluster</td><td>Дорогие букеты требуют другой коммуникации.</td><td>AOV, ROAS</td><td>ROAS выше среднего</td></tr>
+              <tr><td>Peak mode</td><td>Отдельные правила ставок перед праздниками.</td><td>Orders, CPL</td><td>Больше заказов без SLA-провала</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="risks">
+      <div class="wrap">
+        <div class="reveal">
+          <p class="eyebrow">Риски, данные и отчётность</p>
+          <h2>Снижение CPL нельзя оценивать отдельно от качества заказа, SLA и маржи.</h2>
+        </div>
+
+        <div class="grid-3 reveal" style="margin-top:34px;">
+          <article class="card top-accent"><h3>Неполная аналитика</h3><p>Бизнес принимает решения по смешанной или запаздывающей аналитике из-за фрагментированной воронки.</p></article>
+          <article class="card top-accent"><h3>Сезонная волатильность</h3><p>Снижение CPL на обычных неделях может казаться успехом, но не выдержать праздничный пик.</p></article>
+          <article class="card top-accent"><h3>Операционное узкое место</h3><p>Если сборка, доставка и подтверждение не выдержат SLA, маркетинг испортит конверсию и отзывы.</p></article>
+        </div>
+
+        <div class="section-tight reveal">
+          <table class="custom-table">
+            <thead><tr><th>Риск</th><th>Как бьёт по CPL</th><th>Как минимизировать</th></tr></thead>
+            <tbody>
+              <tr><td>Неполная аналитика</td><td>Алгоритм оптимизируется по неполным событиям.</td><td>Единая purchase-цель, импорт CRM-статусов.</td></tr>
+              <tr><td>Смешение кампаний</td><td>Сильные сегменты маскируют слабые.</td><td>Разделить бренд, non-brand, категории, районы, РСЯ.</td></tr>
+              <tr><td>Пиковые даты</td><td>CPL растёт из-за конкуренции и срочности.</td><td>Отдельный peak-mode и rolling 28 days.</td></tr>
+              <tr><td>Низкая скорость сайта</td><td>Падает CR, растёт стоимость цели.</td><td>Lighthouse-аудит, оптимизация изображений и LCP.</td></tr>
+              <tr><td>Операционный перегруз</td><td>Задержки бьют по оплатам и отзывам.</td><td>SLA-модель, лимиты бюджета по зонам и времени.</td></tr>
+              <tr><td>Нерентабельные заказы</td><td>CPL падает, но маржа уходит вниз.</td><td>Ставки по марже, AOV и повторяемости.</td></tr>
+              <tr><td>Слабый retention</td><td>Каждый заказ покупается заново.</td><td>CRM-сценарии, приложение, поводы, repeat flows.</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid-2 reveal">
+          <article class="card">
+            <h3>Данные от клиента</h3>
+            <ul class="list">
+              <li><b>Доступ к Директу</b> — критично.</li>
+              <li><b>Доступ к Метрике</b> — критично.</li>
+              <li><b>CRM-статусы заказов</b> — критично.</li>
+              <li><b>История заказов 12–36 месяцев</b> — критично.</li>
+              <li>Коллтрекинг и источники звонков.</li>
+              <li>Маржа по категориям и зонам.</li>
+              <li>Средний чек и repeat rate.</li>
+              <li>Фид товаров и остатки.</li>
+              <li>Список салонов и районов доставки.</li>
+              <li>Календарь праздников и промо.</li>
+              <li>Ограничения по сборке и доставке.</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Словарь метрик</h3>
+            <table class="custom-table" style="box-shadow:none;border-radius:18px;">
+              <tbody>
+                <tr><td>Лид</td><td>Форма / звонок / вход в мессенджер.</td></tr>
+                <tr><td>Qualified lead</td><td>Подтверждённый интерес с валидными контактами.</td></tr>
+                <tr><td>Paid order</td><td>Оплаченный заказ.</td></tr>
+                <tr><td>Fulfilled order</td><td>Доставленный и неоспоренный заказ.</td></tr>
+                <tr><td>Repeat customer</td><td>Клиент со второй и далее покупкой.</td></tr>
+              </tbody>
+            </table>
+            <p class="lead" style="font-size:16px;margin-top:20px;">Главный KPI для Директа — <span class="strong">paid order CPL</span>. Главный KPI для маркетинга в целом — <span class="strong">blended CPL</span>.</p>
+          </article>
+        </div>
+
+        <div class="grid-3 reveal" style="margin-top:28px;">
+          <article class="card beige"><h3>Daily pace report</h3><p>Расход, клики, CPC, заказы, оплаченные заказы, CPL purchase, trackable share, звонки/мессенджеры, статус фида.</p></article>
+          <article class="card beige"><h3>Weekly optimization report</h3><p>Победители и проигравшие запросы, минус-слова, ставки, гео-корректировки, тесты, placement hygiene.</p></article>
+          <article class="card beige"><h3>Monthly executive report</h3><p>Spend, paid orders, blended CPL, revenue, AOV, DRR/ROAS, repeat rate, LTV:CAC, вклад каналов и план.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>Florcat × Яндекс.Директ — Маркетинговый план 2025–2026</div>
+    <div class="footer-mark">✽</div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    const progress = document.getElementById('progress');
+
+    function onScroll() {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = `${height > 0 ? (scrollTop / height) * 100 : 0}%`;
+      header.classList.toggle('scrolled', scrollTop > 18);
+
+      document.querySelectorAll('.parallax').forEach((el, i) => {
+        const speed = i % 2 === 0 ? .035 : .055;
+        el.style.transform = `translateY(${scrollTop * speed}px) rotate(${i % 2 === 0 ? -8 : 0}deg)`;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          if (entry.target.classList.contains('bar-card')) entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal, .bar-card').forEach(el => revealObserver.observe(el));
+
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = parseFloat(el.dataset.target);
+        const prefix = el.dataset.prefix || '';
+        const suffix = el.dataset.suffix || '';
+        const duration = 1200;
+        const start = performance.now();
+
+        function tick(now) {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          const value = Math.floor(target * eased);
+          el.textContent = `${prefix}${value.toLocaleString('ru-RU')}${suffix}`;
+          if (p < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: 0.45 });
+
+    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+  </script>
+</body>
+</html>
